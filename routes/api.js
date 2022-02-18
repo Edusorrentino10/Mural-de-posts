@@ -1,24 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const posts = require('../model/posts');
 
 
-const whitelist = [ "http://localhost:3000", "https://edusorrentino10.github.io/Mural-de-posts/" ];
-
-const corsOptions = {
-    origin: function (origin, callback) {
-        if(whitelist.indexOf(origin) !== -1){
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    }
-}
-
-
-router.use(cors(corsOptions));
 
 router.get("/all", (req, res) => {
     res.json(JSON.stringify(posts.getAll()));
