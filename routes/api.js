@@ -1,9 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const posts = require('../model/posts');
 
 
+const corsOptions = {
+    origin: "https://edusorrentino10.github.io/Mural-de-posts/"
+}
+
+
+router.use(cors(corsOptions));
 
 router.get("/all", (req, res) => {
     res.json(JSON.stringify(posts.getAll()));
