@@ -6,7 +6,7 @@ const posts = require('../model/posts');
 
 
 const corsOptions = {
-    origin: "https://edusorrentino10.github.io/Mural-de-posts/"
+    origin: "http://localhost:3000"
 }
 
 
